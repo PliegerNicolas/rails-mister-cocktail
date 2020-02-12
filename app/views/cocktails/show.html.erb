@@ -1,7 +1,28 @@
 <div class="page">
   <div class="header">
-    <h1>RailsMisterCocktail</h1>
-    <%= link_to "New cocktail", new_cocktail_path %>
+    <div class="header-item">
+      <%= link_to cocktails_path, class: "MisterCocktail-link" do %>
+      <h1>RailsMisterCocktail</h1>
+      <% end %>
+    </div>
+    <div class="header-item"><%= link_to "New cocktail", new_cocktail_path %></div>
+  </div>
+  <div class="content">
+    <img src="" class="cocktail-img">
+    <div class="cocktail">
+
+    </div>
+    <div class="cocktail-action-bar">
+
+    </div>
+  </div>
+</div>
+
+<!--
+<div class="page">
+  <div class="header">
+    <div class="header-item"><h1>RailsMisterCocktail</h1></div>
+    <div class="header-item"><%= link_to "New cocktail", new_cocktail_path %></div>
   </div>
   <div class="content">
     <div class="cocktail">
@@ -25,3 +46,4 @@
     <%= link_to "Go to cocktails", cocktails_path %>
   </div>
 </div>
+-->

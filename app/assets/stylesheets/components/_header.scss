@@ -6,12 +6,17 @@
   background-color: $header-background-color;
   height: 70px;
   box-shadow: 0px 1px 20px 0px rgba(0,0,0,0.35);
-  border-radius: 0 0 4px 4px;
   .header-item {
     margin: 0 15px;
   }
   a {
     text-decoration: none;
     color: $text-blue;
+  }
+}
+
+.MisterCocktail-link {
+  h1 {
+    color: $text-color;
   }
 }

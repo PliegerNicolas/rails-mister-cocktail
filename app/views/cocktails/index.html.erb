@@ -1,13 +1,18 @@
 <div class="page">
   <div class="header">
-    <div class="header-item"><h1>RailsMisterCocktail</h1></div>
+    <div class="header-item">
+      <%= link_to cocktails_path, class: "MisterCocktail-link" do %>
+      <h1>RailsMisterCocktail</h1>
+      <% end %>
+    </div>
     <div class="header-item"><%= link_to "New cocktail", new_cocktail_path %></div>
   </div>
   <div class="content">
     <ul id="cocktails-list">
       <% @cocktails.each do |cocktail| %>
-      <li class="cocktail">
-        <%= link_to "#{cocktail.name}", cocktail_path(cocktail.id) %>
+      <%= link_to cocktail_path(cocktail.id), class: "cocktail-box" do%>
+      <li class="cocktail-box">
+        <h2 class="cocktail-name"><%= cocktail.name %></h2>
         <ul id="doses-list">
           <% cocktail.doses.each do |dose| %>
           <li class="cocktail-dose">
@@ -16,6 +21,7 @@
           <% end %>
         </ul>
       </li>
+      <% end %>
       <% end %>
     </ul>
   </div>

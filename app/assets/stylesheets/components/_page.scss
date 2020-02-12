@@ -1,4 +1,8 @@
-body,html {
+html {
+ overflow-y: scroll;
+}
+
+body {
   margin: 0;
   background-color: $background-color;
 }
