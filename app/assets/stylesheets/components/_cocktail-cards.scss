@@ -1,0 +1,29 @@
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+#cocktails-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.cocktail {
+  background-color: $card-background-color;
+  margin: 20px;
+  height: 340px;
+  width: 380px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#doses-list {
+  list-style-type: none;
+}

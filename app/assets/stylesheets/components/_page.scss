@@ -1,8 +1,8 @@
 body,html {
   margin: 0;
-  background-image: url('background.jpeg');
-  background-color: #3D393D;
-  background-size: cover;
-  background-repeat: repeat;
-  color: white;
+  background-color: $background-color;
+}
+
+.content {
+  margin: 0 200px;
 }
