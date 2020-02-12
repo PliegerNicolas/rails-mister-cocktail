@@ -1,2 +1,27 @@
-<h1>Cocktails#show</h1>
-<p>Find me in app/views/cocktails/show.html.erb</p>
+<div class="page">
+  <div class="header">
+    <h1>RailsMisterCocktail</h1>
+    <%= link_to "New cocktail", new_cocktail_path %>
+  </div>
+  <div class="content">
+    <div class="cocktail">
+      <h2><%= @cocktail.id %> . <%= @cocktail.name %></h2>
+
+      <div class="cocktail-doses">
+        <% @cocktail.doses.each do |dose| %>
+        <%= dose.ingredient.name %> =>
+        <%= dose.description %>
+        <% end %>
+      </div>
+    </div>
+    <div class="ingredients-container">
+      <% @ingredients.each do |ingredient| %>
+      <div class="ingredient-name">
+        <%= ingredient.id %> .
+        <%= ingredient.name %>
+      </div>
+      <% end %>
+    </div>
+    <%= link_to "Go to cocktails", cocktails_path %>
+  </div>
+</div>

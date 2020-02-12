@@ -27,6 +27,7 @@ class CocktailsController < ApplicationController
 
   def show
     set_cocktail
+    @ingredients = Ingredient.all
   end
 
   private

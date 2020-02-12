@@ -1,2 +1,9 @@
-<h1>Cocktails#new</h1>
-<p>Find me in app/views/cocktails/new.html.erb</p>
+<div class="page">
+  <div class="header">
+    <h1>RailsMisterCocktail</h1>
+    <%= link_to "New cocktail", new_cocktail_path %>
+  </div>
+  <div class="content">
+    <%= @cocktail %>
+  </div>
+</div>
