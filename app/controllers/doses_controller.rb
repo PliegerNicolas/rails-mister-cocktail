@@ -1,9 +1,11 @@
 class DosesController < ApplicationController
   def new
+    find_cocktail
     @dose = Dose.new
   end
 
   def create
+    find_cocktail
     @dose = Dose.new(dose_params)
     @dose.cocktail = @cocktail
     if @dose.save

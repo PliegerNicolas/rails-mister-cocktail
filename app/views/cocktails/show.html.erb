@@ -38,14 +38,7 @@
           <% end %>
         </li>
         <% end %>
-        <div class="dropdown-ingredient-selector">
-          <button class="dropdown-button">Select ingredient to add</button>
-          <div class="dropdown-ingredients-content">
-            <% @ingredients.each do |ingredient| %>
-            <%= link_to ingredient.name, new_cocktail_dose_path(@cocktail.id, ingredient.id), class: "scroll-button-ingredient" %> <!-- HELP -->
-            <% end %>
-          </div>
-        </div>
+        <%= link_to 'Add a new dose', new_cocktail_dose_path(@cocktail) %>
       </ul>
     </div>
   </div>
