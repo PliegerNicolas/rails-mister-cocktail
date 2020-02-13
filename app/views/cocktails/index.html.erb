@@ -5,7 +5,15 @@
       <h1>RailsMisterCocktail</h1>
       <% end %>
     </div>
-    <div class="header-item"><%= link_to "New cocktail", new_cocktail_path %></div>
+    <div class="header-item">
+      <%= simple_form_for :search, url: root_path, method: "get" do |f| %>
+      <%= f.text_field :query, name: "query", value: @query %>
+      <%= f.submit "Search", name: nil %>
+      <% end %>
+    </div>
+    <div class="header-item">
+      <%= link_to "New cocktail", new_cocktail_path %>
+    </div>
   </div>
   <div class="content">
     <ul id="cocktails-list">

@@ -8,6 +8,7 @@
     <div class="header-item"><%= link_to "New cocktail", new_cocktail_path %></div>
   </div>
   <div class="content">
-    <%= @cocktail %>
+    <%= render 'cocktail_form', cocktail: @cocktail %>
   </div>
+  <%= link_to "Back to cocktails", root_path %>
 </div>

@@ -8,42 +8,46 @@
     <div class="header-item"><%= link_to "New cocktail", new_cocktail_path %></div>
   </div>
   <div class="content">
-    <img src="" class="cocktail-img">
-    <div class="cocktail">
 
+    <div class="item-header">
+      <h2><%= @cocktail.name %></h2>
     </div>
-    <div class="cocktail-action-bar">
 
+    <div class="description-box">
+      <h3>Description</h3>
+      <div class="cocktail-description">
+        <%= @cocktail.description %>
+        <%= link_to 'Edit', edit_cocktail_path(@cocktail.id), class: "cocktail-link cocktail-link-edit" %>
+        <%= link_to 'Delete', cocktail_path(@cocktail.id),
+        method: :delete,
+        data: { confirm: "Are you sure you want to delete \'#{@cocktail.name}\' ?"},
+        class: "cocktail-link cocktail-link-delete" %>
+      </div>
     </div>
-  </div>
-</div>
 
-<!--
-<div class="page">
-  <div class="header">
-    <div class="header-item"><h1>RailsMisterCocktail</h1></div>
-    <div class="header-item"><%= link_to "New cocktail", new_cocktail_path %></div>
-  </div>
-  <div class="content">
-    <div class="cocktail">
-      <h2><%= @cocktail.id %> . <%= @cocktail.name %></h2>
-
-      <div class="cocktail-doses">
+    <div class="ingredients-box">
+      <h3>Ingredients</h3>
+      <ul id="ingredients-list">
         <% @cocktail.doses.each do |dose| %>
-        <%= dose.ingredient.name %> =>
-        <%= dose.description %>
+        <li>
+          <b><%= dose.ingredient.name %></b>
+          -
+          <p><%= dose.description %></p>
+          <%= link_to dose_path(dose.id), method: :delete, data: { confirm: "Are you sure you want to delete \'#{dose.ingredient.name}\' ?" } do %>
+          <i class="fa fa-trash destroy_dose"></i>
+          <% end %>
+        </li>
         <% end %>
-      </div>
+        <div class="dropdown-ingredient-selector">
+          <button class="dropdown-button">Select ingredient to add</button>
+          <div class="dropdown-ingredients-content">
+            <% @ingredients.each do |ingredient| %>
+            <%= link_to ingredient.name, new_cocktail_dose_path(@cocktail.id, ingredient.id), class: "scroll-button-ingredient" %> <!-- HELP -->
+            <% end %>
+          </div>
+        </div>
+      </ul>
     </div>
-    <div class="ingredients-container">
-      <% @ingredients.each do |ingredient| %>
-      <div class="ingredient-name">
-        <%= ingredient.id %> .
-        <%= ingredient.name %>
-      </div>
-      <% end %>
-    </div>
-    <%= link_to "Go to cocktails", cocktails_path %>
   </div>
+  <%= link_to "Back to cocktails", cocktails_path %>
 </div>
--->

@@ -1,2 +1,14 @@
-<h1>Cocktails#edit</h1>
-<p>Find me in app/views/cocktails/edit.html.erb</p>
+<div class="page">
+  <div class="header">
+    <div class="header-item">
+      <%= link_to cocktails_path, class: "MisterCocktail-link" do %>
+      <h1>RailsMisterCocktail</h1>
+      <% end %>
+    </div>
+    <div class="header-item"><%= link_to "New cocktail", new_cocktail_path %></div>
+  </div>
+  <div class="content">
+    <%= render 'cocktail_form', cocktail: @cocktail %>
+  </div>
+  <%= link_to "Back to : #{@cocktail.name}", cocktail_path %>
+</div>

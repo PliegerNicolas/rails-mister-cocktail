@@ -1,6 +1,4 @@
 class DosesController < ApplicationController
-  before_acton :find_cocktail
-
   def new
     @dose = Dose.new
   end
@@ -11,7 +9,7 @@ class DosesController < ApplicationController
     if @dose.save
       redirect_to cocktail_path(@cocktail)
     else
-      render 'cocktails/new'
+      render 'cocktails/show'
     end
   end
 
