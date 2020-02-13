@@ -13,15 +13,18 @@
       <h2><%= @cocktail.name %></h2>
     </div>
 
+<div class="boxes">
     <div class="description-box">
       <h3>Description</h3>
       <div class="cocktail-description">
         <%= @cocktail.description %>
-        <%= link_to 'Edit', edit_cocktail_path(@cocktail.id), class: "cocktail-link cocktail-link-edit" %>
+        <%= link_to 'Edit', edit_cocktail_path(@cocktail.id), class: "cocktail-link cocktail-link-edit default-small-button" %>
+        <% if @cocktail.doses.count < 1 %>
         <%= link_to 'Delete', cocktail_path(@cocktail.id),
         method: :delete,
         data: { confirm: "Are you sure you want to delete \'#{@cocktail.name}\' ?"},
-        class: "cocktail-link cocktail-link-delete" %>
+        class: "cocktail-link cocktail-link-delete default-small-button" %>
+        <% end %>
       </div>
     </div>
 
@@ -29,18 +32,18 @@
       <h3>Ingredients</h3>
       <ul id="ingredients-list">
         <% @cocktail.doses.each do |dose| %>
-        <li>
+        <li class="ingredient">
           <b><%= dose.ingredient.name %></b>
-          -
+          <p class="ingredient-spacer">-</p>
           <p><%= dose.description %></p>
           <%= link_to dose_path(dose.id), method: :delete, data: { confirm: "Are you sure you want to delete \'#{dose.ingredient.name}\' ?" } do %>
           <i class="fa fa-trash destroy_dose"></i>
           <% end %>
         </li>
         <% end %>
-        <%= link_to 'Add a new dose', new_cocktail_dose_path(@cocktail) %>
+        <%= link_to 'Add a new dose', new_cocktail_dose_path(@cocktail), class: "default-button" %>
       </ul>
     </div>
   </div>
-  <%= link_to "Back to cocktails", cocktails_path %>
+  <%= link_to "Back to cocktails", cocktails_path, class: "default-button" %>
 </div>
