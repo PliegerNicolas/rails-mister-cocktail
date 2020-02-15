@@ -23,7 +23,7 @@ end
 
 puts 'Creating random Doses'
 10.times do
-  cocktail = Cocktail.create(name: Faker::Beer.name, description: Faker::Lorem.sentence(word_count: 12, supplemental: true))
+  cocktail = Cocktail.create(name: Faker::Beer.unique.name, description: Faker::Lorem.sentence(word_count: 12, supplemental: true))
   3.times do
     ingredient = Ingredient.find(Faker::Number.within(range: 1..100))
     cocktail.doses.create(description: "#{Faker::Number.within(range: 10..40)}cl", cocktail_id: cocktail.id, ingredient_id: ingredient.id)

@@ -1,12 +1,58 @@
 html {
- overflow-y: scroll;
-}
-
-body {
   margin: 0;
-  background-color: $background-color;
 }
 
-.content {
-  margin: 0 200px;
+.page-spacer {
+  margin: 0;
+  background-color: $page-spacer-color;
+}
+
+.content-container {
+  margin: 0 280px;
+  background-color: $page-background-color;
+  box-shadow: 0 5px 8px 0 rgba(40,40,40,0.18);
+  .content {
+    padding: 40px 20px;
+    background-color: $page-background-color;
+  }
+}
+
+.header-page-spacer {
+  width: 100%;
+}
+
+/* HEADER */
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: $header-orange-color;
+  box-shadow: 0 5px 8px 0 rgba(80,80,80,0.28);
+  height: 80px;
+}
+
+.header-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40px;
+  .header-item-2 {
+    margin-left: 20px;
+  }
+}
+
+.header-form {
+
+}
+
+.header-new-link {
+
+}
+
+.MisterCocktail-link {
+
 }

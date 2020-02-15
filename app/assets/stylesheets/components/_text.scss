@@ -1,0 +1,11 @@
+a {
+  text-decoration: none;
+  color: $text-default-color;
+  transition: 0.6s;
+  &:hover {
+    text-decoration: none;
+    color: $text-default-color;
+    opacity: .8;
+    transition: 0.4s
+  }
+}

@@ -1,36 +1,43 @@
-<div class="page">
-  <div class="header">
-    <div class="header-item">
-      <%= link_to cocktails_path, class: "MisterCocktail-link" do %>
-      <h1>RailsMisterCocktail</h1>
-      <% end %>
+<div  class="page-spacer">
+  <div class="page">
+    <div class="header">
+      <div class="header-item">
+        <%= link_to cocktails_path, class: "MisterCocktail-link" do %>
+        <h1>RailsMisterCocktail</h1>
+        <% end %>
+      </div>
+      <div class="header-item">
+        <div class="header-form header-item-2">
+          <%= simple_form_for :search, url: root_path, method: "get" do |f| %>
+          <%= f.text_field :query, name: "query", value: @query %>
+          <%= f.submit "Search", name: nil %>
+          <% end %>
+        </div>
+        <div class="header-new-ink header-item-2">
+          <%= link_to "New cocktail", new_cocktail_path %>
+        </div>
+      </div>
     </div>
-    <div class="header-item">
-      <%= simple_form_for :search, url: root_path, method: "get" do |f| %>
-      <%= f.text_field :query, name: "query", value: @query %>
-      <%= f.submit "Search", name: nil %>
-      <% end %>
-    </div>
-    <div class="header-item">
-      <%= link_to "New cocktail", new_cocktail_path %>
-    </div>
-  </div>
-  <div class="content">
-    <ul id="cocktails-list">
-      <% @cocktails.each do |cocktail| %>
-      <%= link_to cocktail_path(cocktail.id), class: "cocktail-box" do%>
-      <li class="cocktail-box">
-        <h2 class="cocktail-name"><%= cocktail.name %></h2>
-        <ul id="doses-list">
-          <% cocktail.doses.each do |dose| %>
-          <li class="cocktail-dose">
-            <%= dose.description %> <%= Ingredient.find(dose.ingredient_id).name %>
+    <div class="header-page-spacer"></div>
+    <div class="content-container">
+      <div class="content">
+        <ul id="cocktails-list">
+          <% @cocktails.each do |cocktail| %>
+          <%= link_to cocktail_path(cocktail.id), class: "cocktail-box" do%>
+          <li class="cocktail-box">
+            <h2 class="cocktail-name"><%= cocktail.name %></h2>
+            <ul id="doses-list">
+              <% cocktail.doses.each do |dose| %>
+              <li class="cocktail-dose">
+                <%= dose.description %> <%= Ingredient.find(dose.ingredient_id).name %>
+              </li>
+              <% end %>
+            </ul>
           </li>
           <% end %>
+          <% end %>
         </ul>
-      </li>
-      <% end %>
-      <% end %>
-    </ul>
+      </div>
+    </div>
   </div>
 </div>
