@@ -64,7 +64,7 @@ class CocktailsController < ApplicationController
   def query_search(query)
     @query = query
     # @cocktails = Cocktail.where("name iLike '%#{query}%'")
-    cocktails = Cocktail.joins(:doses, :ingredients)
+    cocktails = Cocktail.joins(:doses, :ingredients, :photo)
     @cocktails = cocktails.where("ingredients.name iLike '%#{query}%'
                                   or cocktails.name iLike '%#{query}%'").uniq
   end

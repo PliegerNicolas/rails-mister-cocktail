@@ -22,8 +22,14 @@ ingredients['drinks'].each do |ingredient|
 end
 
 puts 'Creating random Doses'
+
 10.times do
+  file = URI.open('https://images.unsplash.com/photo-1575650772417-e6b418b0d106?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')
   cocktail = Cocktail.create(name: Faker::Beer.unique.name, description: Faker::Lorem.sentence(word_count: 12, supplemental: true))
+
+  puts 'Adding image to cocktail'
+
+  cocktail.photo.attach(io: file, filename: 'cocktail-img.png', content_type: 'image/png')
   3.times do
     ingredient = Ingredient.find(Faker::Number.within(range: 1..100))
     cocktail.doses.create(description: "#{Faker::Number.within(range: 10..40)}cl", cocktail_id: cocktail.id, ingredient_id: ingredient.id)
